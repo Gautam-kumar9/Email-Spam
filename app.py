@@ -6,24 +6,15 @@ import os
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 
-# Ensure NLTK data is downloaded to the correct path
-nltk_data_path = os.path.join(os.path.expanduser("~"), "nltk_data")
+# Ensure NLTK data is available
+nltk.download('punkt')
+nltk.download('stopwords')
 
-if not os.path.exists(nltk_data_path):
-    os.makedirs(nltk_data_path)
-
-nltk.data.path.append(nltk_data_path)
-
-# Download required NLTK datasets
-nltk.download('punkt', download_dir=nltk_data_path)
-nltk.download('stopwords', download_dir=nltk_data_path)
-
-# Initialize Stemmer
 ps = PorterStemmer()
 
 def transform_text(text):
     text = text.lower()
-    text = nltk.word_tokenize(text)
+    text = nltk.word_tokenize(text)  # Ensure punkt is downloaded
 
     y = []
     for i in text:
