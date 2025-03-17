@@ -3,3 +3,5 @@ streamlit==1.30.0
 nltk==3.8.1
 scikit-learn==1.2.2
 pickle5==0.0.11
+pandas 
+numpy
